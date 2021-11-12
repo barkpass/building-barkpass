@@ -87,9 +87,9 @@ function Blog({entry, entry: {html}}) {
           {new Date(entry.sys.createdAt).toLocaleDateString()}
         </div>
 
-        {entry.authors && (
+        {entry.authorsCollection && (
           <div className="flex items-center space-x-4 justify-center">
-            {entry.authors.map((data) => (
+            {entry.authorsCollection.items.map((data) => (
               <Author key={data.sys.id} author={data} />
             ))}
           </div>

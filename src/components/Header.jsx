@@ -3,11 +3,11 @@ import {Link} from '@shopify/hydrogen';
 export default function Header() {
   return (
     <header className="max-w-5xl mx-auto p-4 flex">
-      <div class="flex justify-start w-0 flex-1">
+      <div className="flex justify-start w-0 flex-1">
         <a href="https://www.barkpass.com">
-          <span class="sr-only">Barkpass</span>
+          <span className="sr-only">Barkpass</span>
           <svg
-            class="fill-current w-auto h-10 text-green-600"
+            className="fill-current w-auto h-10 text-green-600"
             viewBox="0 0 288.213 100"
             fill="none"
             strokeLinecap="square"
@@ -25,22 +25,22 @@ export default function Header() {
           </svg>
         </a>
       </div>
-      <div class="flex items-center justify-end md:flex-1 lg:w-0 space-x-8">
+      <div className="flex items-center justify-end md:flex-1 lg:w-0 space-x-8">
         <Link
           to="/"
-          class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
+          className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
         >
           All Posts
         </Link>
         <a
           href="https://admin.barkpass.com/login"
-          class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
+          className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
         >
           Sign in
         </a>
         <a
           href="https://admin.barkpass.com/register"
-          class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
+          className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
         >
           Sign up
         </a>

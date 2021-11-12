@@ -1,18 +1,18 @@
 export default function Footer() {
   return (
     <footer
-      class="bg-gray-100 dark:bg-gray-800"
+      className="bg-gray-100 dark:bg-gray-800"
       aria-labelledby="footer-heading"
     >
-      <h2 id="footer-heading" class="sr-only">
+      <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div class="space-y-8 xl:col-span-1">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div className="space-y-8 xl:col-span-1">
             <a href="https://www.barkpass.com">
               <svg
-                class="fill-current h-10 w-24 text-base"
+                className="fill-current h-10 w-24 text-base"
                 viewBox="0 0 288.213 100"
                 fill="none"
                 strokeLinecap="square"
@@ -32,18 +32,18 @@ export default function Footer() {
                 </g>
               </svg>
             </a>
-            <p class="text-gray-500 dark:text-gray-300 text-base">
+            <p className="text-gray-500 dark:text-gray-300 text-base">
               Building a better future for pets and the people who care about
               them.
             </p>
-            <div class="flex space-x-6">
+            <div className="flex space-x-6">
               <a
                 href="https://www.linkedin.com/company/barkpass"
-                class="text-gray-400 dark:text-gray-300 hover:text-gray-500"
+                className="text-gray-400 dark:text-gray-300 hover:text-gray-500"
               >
-                <span class="sr-only">LinkedIn</span>
+                <span className="sr-only">LinkedIn</span>
                 <svg
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 76.624 65.326"
@@ -65,11 +65,11 @@ export default function Footer() {
 
               <a
                 href="https://twitter.com/barkpass"
-                class="text-gray-400 dark:text-gray-300 hover:text-gray-500"
+                className="text-gray-400 dark:text-gray-300 hover:text-gray-500"
               >
-                <span class="sr-only">Twitter</span>
+                <span className="sr-only">Twitter</span>
                 <svg
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -79,17 +79,17 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-            <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 class="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">
                   Solutions
                 </h3>
-                <ul class="mt-4 space-y-4">
+                <ul className="mt-4 space-y-4">
                   <li>
                     <a
                       href="https://www.barkpass.com/dog-park-management"
-                      class="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
+                      className="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
                     >
                       Dog Park Management
                     </a>
@@ -98,22 +98,22 @@ export default function Footer() {
                   <li>
                     <a
                       href="https://www.barkpass.com/pet-licensing"
-                      class="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
+                      className="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
                     >
                       Pet Licensing
                     </a>
                   </li>
                 </ul>
               </div>
-              <div class="mt-12 md:mt-0">
-                <h3 class="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">
                   Support
                 </h3>
-                <ul class="mt-4 space-y-4">
+                <ul className="mt-4 space-y-4">
                   <li>
                     <a
                       href="https://www.barkpass.com/pricing"
-                      class="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
+                      className="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
                     >
                       Pricing
                     </a>
@@ -122,7 +122,7 @@ export default function Footer() {
                   <li>
                     <a
                       href="https://documentation.barkpass.com/"
-                      class="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
+                      className="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
                     >
                       Documentation
                     </a>
@@ -130,16 +130,16 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <div class="md:grid md:grid-cols-2 md:gap-8">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 class="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">
                   Company
                 </h3>
-                <ul class="mt-4 space-y-4">
+                <ul className="mt-4 space-y-4">
                   <li>
                     <a
                       href="https://www.barkpass.com/about"
-                      class="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
+                      className="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
                     >
                       About
                     </a>
@@ -149,22 +149,22 @@ export default function Footer() {
                     <a
                       href="https://building.barkpass.com"
                       target="_blank"
-                      class="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
+                      className="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
                     >
                       Blog
                     </a>
                   </li>
                 </ul>
               </div>
-              <div class="mt-12 md:mt-0">
-                <h3 class="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">
                   Legal
                 </h3>
-                <ul class="mt-4 space-y-4">
+                <ul className="mt-4 space-y-4">
                   <li>
                     <a
                       href="https://admin.barkpass.com/privacy-policy"
-                      class="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
+                      className="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
                     >
                       Privacy
                     </a>
@@ -173,7 +173,7 @@ export default function Footer() {
                   <li>
                     <a
                       href="https://admin.barkpass.com/terms-of-service"
-                      class="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
+                      className="text-base text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
                     >
                       Terms
                     </a>
@@ -183,8 +183,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div class="mt-12 border-t border-gray-200 pt-8">
-          <p class="text-base text-gray-400 xl:text-center">
+        <div className="mt-12 border-t border-gray-200 pt-8">
+          <p className="text-base text-gray-400 xl:text-center">
             © 2021 Barkpass, LLC. All rights reserved.
           </p>
         </div>
