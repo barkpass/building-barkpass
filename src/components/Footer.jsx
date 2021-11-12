@@ -15,8 +15,8 @@ export default function Footer() {
                 class="fill-current h-10 w-24 text-base"
                 viewBox="0 0 288.213 100"
                 fill="none"
-                stroke-linecap="square"
-                stroke-miterlimit="10"
+                strokeLinecap="square"
+                strokeMiterlimit="10"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <clipPath id="a">

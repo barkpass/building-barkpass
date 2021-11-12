@@ -10,8 +10,8 @@ export default function Header() {
             class="fill-current w-auto h-10 text-green-600"
             viewBox="0 0 288.213 100"
             fill="none"
-            stroke-linecap="square"
-            stroke-miterlimit="10"
+            strokeLinecap="square"
+            strokeMiterlimit="10"
             xmlns="http://www.w3.org/2000/svg"
           >
             <clipPath id="a">

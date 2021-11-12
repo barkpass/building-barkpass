@@ -1,6 +1,7 @@
 import {useQuery, Link} from '@shopify/hydrogen';
 import Author from '../components/Author';
 import Layout from '../components/Layout';
+import Seo from '../components/Seo.client';
 import {getEntries} from '../content';
 
 export default function Index() {
@@ -11,6 +12,9 @@ export default function Index() {
 
   return (
     <Layout>
+      <Seo>
+        <title>Building Barkpass</title>
+      </Seo>
       <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
         <div className="absolute inset-0">
           <div className="bg-white h-1/3 sm:h-2/3" />
