@@ -6,7 +6,7 @@ import {getEntries} from '../content';
 
 export default function Index() {
   const {data: entries} = useQuery('entries', getEntries, {
-    cache: {maxAge: 60 * 60, staleWhileRevalidate: 60 * 60 * 12},
+    cache: {maxAge: 60, staleWhileRevalidate: 60 * 60 * 12},
     retry: false,
   });
 

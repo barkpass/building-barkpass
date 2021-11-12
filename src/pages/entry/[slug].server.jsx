@@ -12,7 +12,7 @@ export default function Entry() {
     `entry-${slug}`,
     async () => await getEntry({slug}),
     {
-      cache: {maxAge: 60 * 60, staleWhileRevalidate: 60 * 60 * 12},
+      cache: {maxAge: 60, staleWhileRevalidate: 60 * 60 * 12},
       retry: false,
     },
   );
