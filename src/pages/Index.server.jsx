@@ -1,11 +1,12 @@
 import {useQuery, Link} from '@shopify/hydrogen';
 import Author from '../components/Author';
-import Layout from '../components/Layout.server';
+import Layout from '../components/Layout';
 import {getEntries} from '../content';
 
 export default function Index() {
   const {data: entries} = useQuery('entries', getEntries, {
     cache: {maxAge: 60 * 60, staleWhileRevalidate: 60 * 60 * 12},
+    retry: false,
   });
 
   return (
@@ -40,30 +41,28 @@ export default function Index() {
 function Card({post}) {
   return (
     <div
-      key={post.fields.title}
+      key={post.title}
       className="flex flex-col rounded-lg shadow-lg overflow-hidden"
     >
       <div className="flex-shrink-0">
-        <Link to={`/entry/${post.fields.slug}`}>
+        <Link to={`/entry/${post.slug}`}>
           <img
             className="h-48 w-full object-cover"
-            src={post.fields.featuredImage.fields.file.url}
-            alt={post.fields.featuredImage.fields.file.title}
+            src={post.featuredImage.url}
+            alt={post.featuredImage.title}
           />
         </Link>
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
-          <Link to={`/entry/${post.fields.slug}`} className="block mt-2">
-            <p className="text-xl font-semibold text-gray-900">
-              {post.fields.title}
-            </p>
+          <Link to={`/entry/${post.slug}`} className="block mt-2">
+            <p className="text-xl font-semibold text-gray-900">{post.title}</p>
             <p className="mt-3 text-base text-gray-500">
-              {post.fields.metaDescription}
+              {post.metaDescription}
             </p>
           </Link>
         </div>
-        <Author author={post.fields.authors[0]}>
+        <Author author={post.authorsCollection.items[0]}>
           <time dateTime={post.sys.createdAt}>
             {new Date(post.sys.createdAt).toLocaleDateString()}
           </time>

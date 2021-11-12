@@ -1,30 +1,97 @@
-import * as contentful from 'contentful';
 import markdownIt from 'markdown-it';
 
-const getClient = () =>
-  contentful.createClient({
-    space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
-    accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
-  });
+const spaceId =
+  typeof CONTENTFUL_SPACE_ID !== 'undefined'
+    ? CONTENTFUL_SPACE_ID
+    : import.meta.env.VITE_CONTENTFUL_SPACE_ID;
+const accessToken =
+  typeof CONTENTFUL_ACCESS_TOKEN !== 'undefined'
+    ? CONTENTFUL_ACCESS_TOKEN
+    : import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN;
+
+const baseUrl = `https://graphql.contentful.com/content/v1/spaces/${spaceId}`;
+
+const graphqlQuery = async ({query, variables}) => {
+  const url = new URL(baseUrl);
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({
+      query,
+      variables,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+  }).then((r) => r.json());
+
+  if (response.errors) {
+    throw new Error(JSON.stringify(response.errors));
+  }
+
+  return response;
+};
+
+const POST_FRAGMENT = `items {
+  sys {
+    id
+    createdAt: publishedAt
+  }
+  title
+  slug
+  content
+  metaDescription
+  authorsCollection(limit: 5) {
+    items {
+      sys {
+        id
+      }
+      name
+      photo {
+        title
+        url
+      }
+      twitterHandle
+    }
+  }
+  featuredImage {
+    url
+    title
+  }
+}`;
 
 export async function getEntry({slug}) {
-  const entries = await getClient().getEntries({
-    content_type: 'post',
-    'fields.slug': slug,
+  const response = await graphqlQuery({
+    query: `
+    query EntryQuery($where: PostFilter) {
+      postCollection(where: $where, limit: 1) {
+        ${POST_FRAGMENT}
+      }
+    }`,
+    variables: {
+      where: {slug},
+    },
   });
-  const entry = entries.items[0];
+  const entry = response.data.postCollection.items[0];
 
   return {
     ...entry,
-    html: markdownIt().render(entry.fields.content),
+    html: markdownIt().render(entry.content),
   };
 }
 
 export async function getEntries() {
-  const entries = await getClient().getEntries({
-    content_type: 'post',
-    order: '-sys.createdAt',
+  const response = await graphqlQuery({
+    query: `
+    query EntriesQuery($order: [PostOrder]) {
+      postCollection(order: $order, limit: 100) {
+        ${POST_FRAGMENT}
+      }
+    }`,
+    variables: {
+      order: 'sys_publishedAt_DESC',
+    },
   });
 
-  return entries.items;
+  return response.data.postCollection.items;
 }

@@ -22,7 +22,7 @@ export default function Footer() {
                 <clipPath id="a">
                   <path d="M0 0h288.213v100H0V0z"></path>
                 </clipPath>
-                <g clip-path="url(#a)">
+                <g clipPath="url(#a)">
                   <path fill="none" d="M0 0h288.213v100H0z"></path>
                   <path
                     fill="none"

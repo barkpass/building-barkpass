@@ -1,13 +1,12 @@
 export default function Author({author, children}) {
-  const {name, photo, twitterHandle} = author.fields;
-  const photoUrl = photo.fields.file.url;
+  const {name, photo, twitterHandle} = author;
 
   return (
     <div className="mt-6 flex items-center">
       <div className="flex-shrink-0">
         <div>
           <span className="sr-only">{name}</span>
-          <img className="h-10 w-10 rounded-full" src={photoUrl} alt={name} />
+          <img className="h-10 w-10 rounded-full" src={photo.url} alt={name} />
         </div>
       </div>
       <div className="ml-3">

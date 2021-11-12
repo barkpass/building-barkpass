@@ -1,7 +1,7 @@
 import {useParams} from 'react-router-dom';
 import {useQuery, Link} from '@shopify/hydrogen';
 import Seo from '../../components/Seo.client';
-import Layout from '../../components/Layout.server';
+import Layout from '../../components/Layout';
 import {getEntry} from '../../content';
 import Author from '../../components/Author';
 
@@ -11,7 +11,10 @@ export default function Entry() {
   const {data: entry} = useQuery(
     `entry-${slug}`,
     async () => await getEntry({slug}),
-    {cache: {maxAge: 60 * 60, staleWhileRevalidate: 60 * 60 * 12}},
+    {
+      cache: {maxAge: 60 * 60, staleWhileRevalidate: 60 * 60 * 12},
+      retry: false,
+    },
   );
 
   return (
@@ -25,37 +28,34 @@ function Blog({entry, entry: {html}}) {
   return (
     <div className="relative py-16 bg-white overflow-hidden">
       <Seo>
-        <title>{entry.fields.title} - Building Barkpass</title>
-        <meta
-          name="og:title"
-          content={`${entry.fields.title} - Building Barkpass`}
-        />
-        <meta name="description" content={entry.fields.metaDescription} />
-        <meta name="og:description" content={entry.fields.metaDescription} />
-        {entry.fields.featuredImage && (
+        <title>{entry.title} - Building Barkpass</title>
+        <meta name="og:title" content={`${entry.title} - Building Barkpass`} />
+        <meta name="description" content={entry.metaDescription} />
+        <meta name="og:description" content={entry.metaDescription} />
+        {entry.featuredImage && (
           <>
             <meta
               name="image"
               property="og:image"
-              content={`https:${entry.fields.featuredImage.fields.file.url}`}
+              content={`https:${entry.featuredImage.url}`}
             />
             <meta
               name="og:image"
-              content={`https:${entry.fields.featuredImage.fields.file.url}`}
+              content={`https:${entry.featuredImage.url}`}
             />
             <meta
               name="twitter:image"
-              content={`https:${entry.fields.featuredImage.fields.file.url}`}
+              content={`https:${entry.featuredImage.url}`}
             />
           </>
         )}
         <meta
           name="og:url"
-          content={`https://building.barkpass.com/entry/${entry.fields.slug}`}
+          content={`https://building.barkpass.com/entry/${entry.slug}`}
         />
         <meta
           name="author"
-          content={entry.fields.authors[0].fields.name}
+          content={entry.authorsCollection.items[0].name}
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
         <meta name="twitter:site" content="@jplhomer"></meta>
@@ -78,7 +78,7 @@ function Blog({entry, entry: {html}}) {
               Blog
             </Link>
             <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              {entry.fields.title}
+              {entry.title}
             </span>
           </h1>
         </div>
@@ -87,9 +87,9 @@ function Blog({entry, entry: {html}}) {
           {new Date(entry.sys.createdAt).toLocaleDateString()}
         </div>
 
-        {entry.fields.authors && (
+        {entry.authors && (
           <div className="flex items-center space-x-4 justify-center">
-            {entry.fields.authors.map((data) => (
+            {entry.authors.map((data) => (
               <Author key={data.sys.id} author={data} />
             ))}
           </div>
