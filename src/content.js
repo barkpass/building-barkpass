@@ -1,4 +1,6 @@
 import markdownIt from 'markdown-it';
+import markdownItAnchor from 'markdown-it-anchor';
+import markdownItTableOfContents from 'markdown-it-table-of-contents';
 
 const spaceId =
   typeof CONTENTFUL_SPACE_ID !== 'undefined'
@@ -76,7 +78,10 @@ export async function getEntry({slug}) {
 
   return {
     ...entry,
-    html: markdownIt().render(entry.content),
+    html: markdownIt()
+      .use(markdownItAnchor)
+      .use(markdownItTableOfContents, {includeLevel: [1, 2, 3]})
+      .render(entry.content),
   };
 }
 
