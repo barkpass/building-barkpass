@@ -15,6 +15,7 @@ export default function Feed({response}) {
     id: entry.id,
     date_published: entry.sys.createdAt,
     title: entry.title,
+    url: `https://building.barkpass.com/entry/${entry.slug}`,
   }));
 
   return response.send(JSON.stringify(payload));
